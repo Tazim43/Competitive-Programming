@@ -3,14 +3,14 @@ Author: Tazim(The_crawler)
 
 Table of content:
 
-line - 14: General Binary search - 1
-line - 30: General Binary search - 2
-line - 47: Lowerbound implementation - 1
-line - 65: Lowerbound implementation - 2
-line - 86: Upperbound implementation - 1
-line - 103: Upperbound implementation - 2
-line - 125: Finding Nth root using BS
-line - 147: STL methods
+line - 21: General Binary search - 1
+line - 35: General Binary search - 2
+line - 50: Lowerbound implementation - 1
+line - 67: Lowerbound implementation - 2
+line - 87: Upperbound implementation - 1
+line - 104: Upperbound implementation - 2
+line - 123: Finding Nth root using BS
+line - 145: STL methods
 
 **/
 
