@@ -4,6 +4,15 @@ using namespace std;
 const int N = 1e5 + 10;
 vector<int> graph[N];
 vector<bool> vis(N, 0); // Only for cyclic graph 
+/*
+      1
+     / \
+    2 _ 3
+   / \
+  4   5
+ Traversal = 1 3 3 5 4 or 1 2 3 4 5
+ 
+*/
 
 // For graphs - need a visited array to mark the visited nodes 
 void DFS(int vertex) {
@@ -18,6 +27,15 @@ void DFS(int vertex) {
    // Take action on the vertex before exiting the vertex 
 }
 
+/*
+     1
+    / \
+   2   3
+  / \
+ 4   5
+
+Traversal = 1 2 4 5 3 or 1 3 2 5 4
+*/
 
 // For trees - no need any visited mark 
 void dfs(int vertex, int parent = -1) {
