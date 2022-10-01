@@ -58,16 +58,25 @@ ll binpow(ll a, ll b){
     return res;
 }
 // Factorial precalculation 
-const int f_limit = 1;
+const int f_limit = 10;
 vector<ll> fact(f_limit);
 void cal_fact(){
-    fact[0] = 0;
+    fact[0] = 1;
     fact[1] = 1;
     for(int i=2; i<=f_limit; i++){
         fact[i] = (fact[i-1]*i)%MOD;
     }
 }
-
+// nPr calculation 
+ll nPr(ll n, ll r){
+    if(r>n)return -1;
+    ll nom = fact[n]%MOD;
+    ll dnom = fact[n-r]%MOD;
+    nom*=binpow(dnom, MOD-2);
+    nom%=MOD;
+    return nom;
+}
+// nCr calculation 
 ll nCr(ll n, ll r){
    if(r==0)return 1;
     if(r>n)return -1;
@@ -88,11 +97,12 @@ int main() {
     //variables : MOD, _p_limit, f_limit
     //functions : run_pascal(), cal_fact()
     // start 
-    cal_fact();
+    // cal_fact();
     int t;
     cin>>t;
     while (t--)
     {
+        
         
     }
     
