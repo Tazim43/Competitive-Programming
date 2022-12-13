@@ -7,7 +7,7 @@ int parent[N];
 int sz[N];
 
 int find(int v){
-    if(find(v)==parent[v])return v;
+    if(v==parent[v])return v;
     return parent[v] = find(parent[v]); // path compression
 }
 
