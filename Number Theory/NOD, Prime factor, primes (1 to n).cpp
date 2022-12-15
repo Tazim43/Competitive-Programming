@@ -26,7 +26,7 @@ void sieve(){
    primes[1] = 0;
    for(int i=2; i<N; i++){
       if(primes[i]==0)continue;
-      for(int j=i*i; j<N; j+=i)primes[j] = 0;
+      for(int j=i*i; j<N; j+=2*i)primes[j] = 0;
    }
 
 }
