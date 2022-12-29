@@ -31,6 +31,47 @@ void sieve(){
 
 }
 
+// finding spf ( smallest prime factor)
+
+const ll N = 5e6+10;
+vector<ll> spf(N+1, 0);
+vector<ll> nop(N+1, 0);
+
+void sieve2(){
+   // pre calculating spf 
+   for(ll i=2; i<N; i+=2)spf[i] = 2;
+   for(ll i=3; i<N; i+=2){
+      if(spf[i]==0){
+         spf[i] = i;
+         for(ll j=i; (i*j)<N; j+=2){
+            ll aa = i*j;
+            if(spf[aa]==0)spf[aa] = i;
+         }
+      }
+   }
+   // counting number of prime factor using spf
+   // also can be used for storing prime factors 
+   
+   ll cnt =0;
+   for(ll i=2; i<N; i++){
+      ll n = i;
+      cnt =0;
+      ll a = spf[i];
+      if(a==0){
+         debug(i)
+      }
+      while (n%a==0)
+      {
+         n/=a;
+         a = spf[n];
+         cnt++;
+         if(a==0)break;
+      }
+      nop[i] = cnt;
+   }
+
+}
+
 int main() {
    // start
    sieve();
