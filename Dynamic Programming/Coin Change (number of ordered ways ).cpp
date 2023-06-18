@@ -2,14 +2,7 @@
 #define FAST_IO ios_base::sync_with_stdio(false); cin.tie(NULL)
 #define all(x) (x).begin(), (x).end()
 using namespace std; 
-#define debug(x) cout<<#x<<" = ";_print(x); cout<<endl; /// Debug function
-template<class T> void _print(T x) { cout << x; }
-template<class T> void _print(vector<T>x) { cout << "[ ";for (T i : x)cout << i << " ";cout << "]"; }
-template<class T> void _print(set<T>x) { cout << "[ ";for (T i : x)cout << i << " ";cout << "]"; }
-template<class T, class V> void _print(pair<T, V>x) { cout << "{" << x.first << "," << x.second << "} "; }
-template<class T, class V> void _print(map<T, V>x) { cout << "[ ";for (auto i : x)_print(i);cout << "]"; }
-template<class T> void _print(multiset<T>x) { cout << "[ ";for (T i : x)cout << i << " ";cout << "]"; }
- 
+
 const int N = 1e6+5;
 int dp[N];
 int main() {
