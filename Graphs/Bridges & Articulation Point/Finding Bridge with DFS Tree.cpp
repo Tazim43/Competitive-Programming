@@ -20,9 +20,9 @@ void dfs(int node, int par = -1){
      
       if(vis[child]){
          if(Time[child]<Time[node]){
-            dp[node]--; // If the back edges going down
+            dp[node]++; // If the back edges going up
          }
-         else dp[node]++; // If the back edges going up
+         else dp[node]--; // If the back edges going down
          continue;
       }
      
