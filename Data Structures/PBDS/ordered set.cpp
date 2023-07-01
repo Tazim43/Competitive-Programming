@@ -5,8 +5,14 @@
 using namespace std; 
 using namespace __gnu_pbds; //2 
 typedef tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update> indexed_set; //3
-
 // less_equal , less, greater, greater_equal 
+
+// erasing any value 
+void myerase(indexed_set &t, int v){
+    int rank = t.order_of_key(v);
+    indexed_set::iterator it = t.find_by_order(rank); 
+    t.erase(it);
+}
 
 
 
