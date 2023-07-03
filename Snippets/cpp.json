@@ -16,13 +16,15 @@
   "_help": {
     "prefix": "_help",
     "body": [
-      "// _binpow : Exponentation",
+      "// _binpow : Exponentiation",
       "// _dbg : Debug function",
-      "// _test : testcases"
+      "// _test : test cases",
+      "// _s : Starting template",
+      "// _pbds : Policy Based Data Structure", 
     ]
   },
 
-  "exponentation": {
+  "exponentiation": {
     "prefix": "_binpow",
     "body": [
       "long long binpow(long long a, long long b, long long _mod){",
