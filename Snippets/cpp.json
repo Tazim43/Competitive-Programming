@@ -13,6 +13,8 @@
   // 	"description": "Log output to console"
   // }
 
+// List of all snippets  
+
   "_help": {
     "prefix": "_help",
     "body": [
@@ -23,6 +25,8 @@
       "// _pbds : Policy Based Data Structure", 
     ]
   },
+
+// Binary Exponentiation 
 
   "exponentiation": {
     "prefix": "_binpow",
@@ -38,6 +42,9 @@
       "}"
     ]
   },
+
+// Debug function template
+
   "debug": {
     "prefix": "_dbg",
     "body": [
@@ -50,10 +57,16 @@
       "template<class T> void _print(multiset<T>x) { cout << \"[ \";for (T i : x)cout << i << \" \";cout << \"]\"; }"
     ]
   },
+
+// Testcase Template
+
   "testcase": {
     "prefix": "_test",
     "body": ["int t;", "cin>>t;", "read:", "while (t--) {", "   $1", "", "}"]
   },
+
+// Starting Template
+
   "template_zero": {
     "prefix": "_s",
     "body": [
@@ -75,6 +88,9 @@
       "}"
     ]
   },
+
+// PBDS ordered set header files
+
   "PBDS": {
     "prefix": "_pbds",
     "body": [
