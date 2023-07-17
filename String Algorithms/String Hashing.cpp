@@ -13,7 +13,9 @@ long long binpow(long long a, long long b, long long _mod){
     return res;
 }
 
-const int mod1 = 1e9+7, p1=137, mod2 = 1e9+9, p2 = 277, N = 1e6+10; // modify this
+const int N = 1e6+10; // modify this
+
+const int mod1 = 1e9+7, p1=137, mod2 = 1e9+9, p2 = 277;
 vector<pair<int, int> > powers(N), inv_powers(N);
 
 void precal(){
@@ -31,7 +33,7 @@ void precal(){
    }
 }
 
-// hash of full string 
+// hash of a full string 
 pair<int, int> forward_hash(string &s){
    pair<int, int> hsh = {0, 0};
    for(int j=0; j<s.length(); j++){
