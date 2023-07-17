@@ -22,14 +22,14 @@ void precal(){
    powers[0] = {1, 1};
    for(int i=1; i<N; i++){
       powers[i].first = 1LL * powers[i-1].first*p1 % mod1;
-      powers[i].second = 1LL * powers[i-1].first*p2 % mod2;
+      powers[i].second = 1LL * powers[i-1].second*p2 % mod2;
    }
    int ip1 = binpow(p1, mod1-2, mod1);
    int ip2 = binpow(p2, mod2-2, mod2);
    inv_powers[0] = {1, 1};
    for(int i=1; i<N; i++){
       inv_powers[i].first = 1LL * inv_powers[i-1].first*ip1 % mod1;
-      inv_powers[i].second = 1LL * inv_powers[i-1].first*ip2 % mod2;
+      inv_powers[i].second = 1LL * inv_powers[i-1].second*ip2 % mod2;
    }
 }
 
@@ -54,6 +54,18 @@ vector<pair<int, int> > hash_array(string &s){ // 1 - indexed
       ar.push_back(hsh);
    }
    return ar;
+}
+
+// substring hash
+pair<int, int> sub_hash(vector<pair<int, int> > &ar, int l, int r){ // 1 - indexed
+   if(l<=1)return ar[r];
+   pair<long long, long long> full = ar[r], del = ar[l-1];
+   pair<long long, long long> need;
+   need.first = (full.first-del.first+mod1)%mod1;
+   need.second = (full.second-del.second+mod2)%mod2;
+   need.first = (need.first*inv_powers[l-1].first)%mod1;
+   need.second = (need.second*inv_powers[l-1].second)%mod2;
+   return need;
 }
 
 
