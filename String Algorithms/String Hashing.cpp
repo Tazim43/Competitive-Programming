@@ -28,8 +28,8 @@ void precal(){
    int ip2 = binpow(p2, mod2-2, mod2);
    inv_powers[0] = {1, 1};
    for(int i=1; i<N; i++){
-      inv_powers[i].first = 1LL * inv_powers[i-1].first*p1 % mod1;
-      inv_powers[i].second = 1LL * inv_powers[i-1].first*p2 % mod2;
+      inv_powers[i].first = 1LL * inv_powers[i-1].first*ip1 % mod1;
+      inv_powers[i].second = 1LL * inv_powers[i-1].first*ip2 % mod2;
    }
 }
 
