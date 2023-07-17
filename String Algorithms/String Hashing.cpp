@@ -42,7 +42,7 @@ pair<int, int> forward_hash(string &s){
 }
 
 // Hashed array
-vector<pair<int, int> > hash_array(string &s){
+vector<pair<int, int> > hash_array(string &s){ // 1 - indexed
    vector<pair<int, int> > ar;
    pair<int, int> hsh = {0, 0};
    ar.push_back(hsh);
