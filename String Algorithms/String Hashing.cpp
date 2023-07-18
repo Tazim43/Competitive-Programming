@@ -43,6 +43,16 @@ pair<int, int> forward_hash(string &s){
    return hsh;
 }
 
+// Reverse hash of a full string
+pair<int, int> reverse_hash(string &s){
+   pair<int, int> hsh = {0, 0};
+   for(int j=s.length()-1, i = 0; j>=0; j--, i++){
+      hsh.first = (hsh.first + 1LL * powers[i].first * s[j] % mod1 ) % mod1;
+      hsh.second = (hsh.second + 1LL * powers[i].second * s[j] % mod2) % mod2;
+   }
+   return hsh;
+}
+
 // Hashed array
 vector<pair<int, int> > hash_array(string &s){ // 1 - indexed
    vector<pair<int, int> > ar;
