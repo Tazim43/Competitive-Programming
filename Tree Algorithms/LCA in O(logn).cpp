@@ -6,7 +6,8 @@ using namespace std;
 const int N = 2e5+10;
  
 vector<int> gh[N];
-int parent[N][21], dep[N];
+int parent[N][21];
+vector<int> dep(N, 1);
 void dfs(int node, int par = -1){
    for(auto child:gh[node]){
       if(child==par)continue;
@@ -45,7 +46,7 @@ int main() {
    }
  
    dfs(1);
- 
+   dep[0] = 0;
    for(int i=1; i<21; i++){
       for(int j=1; j<=n; j++){
          parent[j][i] = parent[parent[j][i-1]][i-1];
