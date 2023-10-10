@@ -6,9 +6,10 @@ using namespace std;
 const int N = 3e5+10;
 
 int sparseTable[26][N];
-int ar[N];
+int ar[N], LOG[N];
 // O(nlogn)
 void build(int n){
+    for(int i=0; i<n+10; i++)LOG[i] = log2(i);
     for(int i=0; i<n; i++){
       sparseTable[0][i] = ar[i];
     }
@@ -22,7 +23,7 @@ void build(int n){
 }
 // O(1)
 int qry(int n, int L, int R){
-    int rng = log2(R-L+1);
+    int rng = LOG[R-L+1];
     int x = sparseTable[rng][L];
     int y = sparseTable[rng][R-(1<<rng)+1];
     return __gcd(x,y); // min, max or gcd
@@ -31,7 +32,7 @@ int qry(int n, int L, int R){
 int main() {
    FAST_IO;
    // start
-
+    memset(sparseTable, 0, sizeof(sparseTable)); // gcd, - 0, min - int_max, max - int_min
     int n;
     cin>>n;
     for(int i=0; i<n; i++){
