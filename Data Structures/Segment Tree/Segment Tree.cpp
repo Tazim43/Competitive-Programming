@@ -7,6 +7,10 @@ const int N = 2e5+10; // change this
 int ar[N];
 long long segTree[4*N];
 
+long long combine(long long a, long long b){
+   return a+b;
+}
+
 void build(int node, int b, int e){
    if(b==e){
       segTree[node] = ar[b];
@@ -16,7 +20,7 @@ void build(int node, int b, int e){
    int left = 2*node, right = 2*node+1;
    build(left, b, mid);
    build(right, mid+1, e);
-   segTree[node] = segTree[left]+segTree[right]; // change this
+   segTree[node] = combine(segTree[2*node], segTree[2*node+1]); // change this
 }
 
 long long qry(int node, int b, int e, int l, int r){
@@ -28,7 +32,7 @@ long long qry(int node, int b, int e, int l, int r){
    long long q_left = qry(left, b, mid, l, r);
    long long q_right = qry(right, mid+1, e, l, r);
    
-   return q_left+q_right; // change this
+   return combine(q_left, q_right); // change this
 }
 
 void upd(int node, int b, int e, int i, int x){
@@ -42,7 +46,7 @@ void upd(int node, int b, int e, int i, int x){
    upd(left, b, mid, i, x);
    upd(right, mid+1, e, i, x);
 
-   segTree[node] = segTree[left]+segTree[right]; // change this
+   segTree[node] = combine(segTree[left], segTree[right]); // change this
 }  
 
 
