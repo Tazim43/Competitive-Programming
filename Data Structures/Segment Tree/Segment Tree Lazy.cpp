@@ -37,7 +37,7 @@ void upd(int node, int b, int e, int l, int r, long long x){
 
    if(b>=l && e<=r){
       segTree[node] += x; // op
-      if(l!=r){
+      if(b!=e){
          lazy[2*node] += x; // op
          lazy[2*node + 1] +=x; // op
       }
