@@ -8,6 +8,10 @@ const int N = 2e5+10;
 
 int ar[N], seg[4*N];
 
+int combine(int a, int b){
+   return a + b;
+}
+
 void build(int node, int b, int e){
    if(b==e){
       seg[node] = ar[b];
@@ -16,7 +20,7 @@ void build(int node, int b, int e){
    int mid = (b+e)/2;
    build(2*node+1, b, mid);
    build(2*node+2, mid+1, e);
-   seg[node] = seg[2*node+1] + seg[2*node+2];
+   seg[node] = combine(seg[2*node+1], seg[2*node+2]);
 }
 void upd(int node, int b, int e, int id, int x){
    if(id>e || id<b)return;
@@ -27,7 +31,7 @@ void upd(int node, int b, int e, int id, int x){
    int mid = (b+e)/2;
    upd(2*node+1, b, mid, id, x);
    upd(2*node+2, mid+1, e, id, x);
-   seg[node] = seg[2*node+1] + seg[2*node+2];
+   seg[node] = combine(seg[2*node+1], seg[2*node+2]);
 }
 
 int qry(int node, int b, int e, int l, int r){
@@ -35,7 +39,7 @@ int qry(int node, int b, int e, int l, int r){
    if(b>=l && e<=r)return seg[node];
 
    int mid = (b+e)/2;
-   return qry(2*node+1, b, mid, l, r) + qry(2*node+2, mid+1, e, l, r);
+   return combine(qry(2*node+1, b, mid, l, r), qry(2*node+2, mid+1, e, l, r));
 }
 
 
@@ -97,7 +101,7 @@ int LCA(int a, int b){
    if(is_ancestor(b, a))return b;
 
    for(int i=20; i>=0; i--){
-      if(!is_ancestor(up[i][a], b))
+      if( up[i][a]>0 && !is_ancestor(up[i][a], b))
          a = up[i][a];
    }
    return up[0][a];
