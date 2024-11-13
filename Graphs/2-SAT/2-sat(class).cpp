@@ -4,6 +4,8 @@
 using namespace std; 
 #define int long long
 
+
+// Implementation from https://codeforces.com/blog/entry/92977
 struct two_sat {
     int n;
     vector<vector<int>> g, gr;
